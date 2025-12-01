@@ -17,7 +17,7 @@ services:
     networks: [stack]
 
   phpmyadmin:
-    image: phpmyadmin/phpmyadmin:latest
+    image: phpmyadmin:latest
     restart: unless-stopped
     environment:
       PMA_HOST: mysql
