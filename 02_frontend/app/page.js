@@ -2,6 +2,8 @@
 
 import { useState, useEffect, useRef } from "react";
 import { useRouter } from "next/navigation";
+import Link from "next/link";
+import Image from "next/image";
 
 export default function Page() {
   const [user, setUser] = useState(null);
@@ -127,7 +129,13 @@ export default function Page() {
                 <div className="menu-profile">
                   <div className="menu-avatar">
                     {user.profile_image ? (
-                      <img src={user.profile_image} alt={user.first_name} />
+                      <Image
+                        src={user.profile_image}
+                        alt={user.first_name}
+                        width={50}
+                        height={50}
+                        style={{ objectFit: "cover" }}
+                      />
                     ) : (
                       <span>{getInitials(user.first_name, user.last_name)}</span>
                     )}
@@ -141,21 +149,21 @@ export default function Page() {
                 <div className="menu-divider"></div>
 
                 {/* Navigation Links */}
-                <a href="/profile" className="menu-item-large">
+                <Link href="/profile" className="menu-item-large">
                   <span className="menu-icon-large">👤</span>
                   <div className="menu-item-content">
                     <span className="menu-item-title">Profile</span>
                     <span className="menu-item-desc">View and edit your profile</span>
                   </div>
-                </a>
+                </Link>
 
-                <a href="/history" className="menu-item-large">
+                <Link href="/history" className="menu-item-large">
                   <span className="menu-icon-large">📊</span>
                   <div className="menu-item-content">
                     <span className="menu-item-title">History</span>
                     <span className="menu-item-desc">View all your workouts</span>
                   </div>
-                </a>
+                </Link>
 
                 <div className="menu-divider"></div>
 
@@ -209,7 +217,7 @@ export default function Page() {
       <section className="workouts-section">
         <div className="section-header">
           <h2 className="section-title">Recent Workouts</h2>
-          <a href="/history" className="view-all-link">View All →</a>
+          <Link href="/history" className="view-all-link">View All →</Link>
         </div>
 
         {!workouts || workouts.length === 0 ? (
@@ -246,10 +254,10 @@ export default function Page() {
       </section>
 
       {/* Floating Add Workout Button */}
-      <a href="/workouts/new" className="fab">
+      <Link href="/workouts/new" className="fab">
         <span className="fab-icon">+</span>
         <span className="fab-text">Add Workout</span>
-      </a>
+      </Link>
     </main>
   );
 }

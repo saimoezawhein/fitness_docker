@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
+import Link from "next/link";
 
 export default function NewWorkoutPage() {
   const [user, setUser] = useState(null);
@@ -79,7 +80,7 @@ export default function NewWorkoutPage() {
     const caloriesBurned = durationMin * (exercise?.calories_per_minute || 0);
 
     const newExercise = {
-      id: Date.now(), // temporary id
+      id: Date.now(),
       exercise_id: parseInt(selectedExercise),
       exercise_name: exercise?.name,
       category_name: exercise?.category_name,
@@ -185,9 +186,9 @@ export default function NewWorkoutPage() {
 
   return (
     <main className="container">
-      <a href="/" className="back-button">
+      <Link href="/" className="back-button">
         ← Back to Home
-      </a>
+      </Link>
 
       <h1 className="title">Record Workout</h1>
       <p className="subtitle">Add exercises to your workout session</p>

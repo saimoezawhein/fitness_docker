@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
+import Link from "next/link";
 
 export default function LoginPage() {
   const [email, setEmail] = useState("");
@@ -77,7 +78,7 @@ export default function LoginPage() {
         </form>
 
         <p className="auth-footer">
-          Don't have an account? <a href="/register">Register</a>
+          Don&apos;t have an account? <Link href="/register">Register</Link>
         </p>
       </div>
     </main>

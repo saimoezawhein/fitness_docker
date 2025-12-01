@@ -2,6 +2,8 @@
 
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
+import Link from "next/link";
+import Image from "next/image";
 
 export default function ProfilePage() {
   const [user, setUser] = useState(null);
@@ -104,9 +106,9 @@ export default function ProfilePage() {
 
   return (
     <main className="container profile-container">
-      <a href="/" className="back-button">
+      <Link href="/" className="back-button">
         ← Back to Home
-      </a>
+      </Link>
 
       <h1 className="title">👤 Profile</h1>
 
@@ -118,7 +120,13 @@ export default function ProfilePage() {
         <div className="profile-header-large">
           <div className="profile-avatar-large">
             {user.profile_image ? (
-              <img src={user.profile_image} alt={user.first_name} />
+              <Image
+                src={user.profile_image}
+                alt={user.first_name}
+                width={100}
+                height={100}
+                style={{ objectFit: "cover" }}
+              />
             ) : (
               <span>{getInitials(user.first_name, user.last_name)}</span>
             )}
@@ -238,14 +246,14 @@ export default function ProfilePage() {
       <div className="profile-card">
         <h3 className="profile-card-title">Quick Links</h3>
         <div className="profile-links">
-          <a href="/history" className="profile-link">
+          <Link href="/history" className="profile-link">
             <span className="profile-link-icon">📊</span>
             <span>View Workout History</span>
-          </a>
-          <a href="/workouts/new" className="profile-link">
+          </Link>
+          <Link href="/workouts/new" className="profile-link">
             <span className="profile-link-icon">➕</span>
             <span>Record New Workout</span>
-          </a>
+          </Link>
         </div>
       </div>
 

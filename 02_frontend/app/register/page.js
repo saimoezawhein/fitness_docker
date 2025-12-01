@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
+import Link from "next/link";
 
 export default function RegisterPage() {
   const [formData, setFormData] = useState({
@@ -154,7 +155,7 @@ export default function RegisterPage() {
         </form>
 
         <p className="auth-footer">
-          Already have an account? <a href="/login">Login</a>
+          Already have an account? <Link href="/login">Login</Link>
         </p>
       </div>
     </main>

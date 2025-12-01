@@ -2,7 +2,7 @@
   "name": "02_frontend",
   "version": "0.1.0",
   "private": true,
-   "scripts": {
+  "scripts": {
     "dev": "next dev --turbopack -p 3000",
     "build": "next build --turbopack",
     "start": "next start -p 3000",
