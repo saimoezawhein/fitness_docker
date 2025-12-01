@@ -110,7 +110,7 @@ export default function ProfilePage() {
         ← Back to Home
       </Link>
 
-      <h1 className="title">👤 Profile</h1>
+      <h1 className="title">Profile</h1>
 
       {error && <div className="error-message">{error}</div>}
       {success && <div className="success-message">{success}</div>}
@@ -247,11 +247,15 @@ export default function ProfilePage() {
         <h3 className="profile-card-title">Quick Links</h3>
         <div className="profile-links">
           <Link href="/history" className="profile-link">
-            <span className="profile-link-icon">📊</span>
+            <span className="profile-link-icon">
+                <i className="fa-solid fa-clock-rotate-left"></i>
+            </span>
             <span>View Workout History</span>
           </Link>
           <Link href="/workouts/new" className="profile-link">
-            <span className="profile-link-icon">➕</span>
+            <span className="profile-link-icon">
+                <i className="fa-solid fa-plus"></i>
+            </span>
             <span>Record New Workout</span>
           </Link>
         </div>
@@ -259,7 +263,10 @@ export default function ProfilePage() {
 
       {/* Logout */}
       <button className="btn btn-danger btn-full" onClick={handleLogout}>
-        🚪 Logout
+        <span className="profile-link-icon">
+            <i className="fa-solid fa-arrow-right-from-bracket">  </i>
+        </span>
+        &nbsp;Logout
       </button>
     </main>
   );

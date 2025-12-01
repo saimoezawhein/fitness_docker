@@ -42,7 +42,7 @@ export default function LoginPage() {
   return (
     <main className="container auth-container">
       <div className="auth-card">
-        <h1 className="auth-title">💪 Fitness Tracker</h1>
+        <h1 className="auth-title">Fitness Tracker</h1>
         <p className="auth-subtitle">Welcome back! Please login.</p>
 
         {error && <div className="error-message">{error}</div>}

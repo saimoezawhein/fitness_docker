@@ -64,7 +64,7 @@ export default function RegisterPage() {
   return (
     <main className="container auth-container">
       <div className="auth-card">
-        <h1 className="auth-title">💪 Fitness Tracker</h1>
+        <h1 className="auth-title">Fitness Tracker</h1>
         <p className="auth-subtitle">Create your account</p>
 
         {error && <div className="error-message">{error}</div>}
@@ -79,7 +79,7 @@ export default function RegisterPage() {
                 type="text"
                 value={formData.first_name}
                 onChange={handleChange}
-                placeholder="John"
+                placeholder="Alexander"
                 required
               />
             </div>
@@ -91,7 +91,7 @@ export default function RegisterPage() {
                 type="text"
                 value={formData.last_name}
                 onChange={handleChange}
-                placeholder="Doe"
+                placeholder="The Sao"
                 required
               />
             </div>
@@ -105,7 +105,7 @@ export default function RegisterPage() {
               type="text"
               value={formData.username}
               onChange={handleChange}
-              placeholder="johndoe"
+              placeholder="alex"
               required
             />
           </div>
@@ -118,7 +118,7 @@ export default function RegisterPage() {
               type="email"
               value={formData.email}
               onChange={handleChange}
-              placeholder="john@example.com"
+              placeholder="alex@example.com"
               required
             />
           </div>

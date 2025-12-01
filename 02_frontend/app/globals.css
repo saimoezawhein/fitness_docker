@@ -1437,3 +1437,8 @@ label {
     grid-template-columns: 1fr;
   }
 }
+
+.profile-link-icon {
+  font-size: 24px;
+  color: #333;
+}

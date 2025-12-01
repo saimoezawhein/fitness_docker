@@ -110,7 +110,7 @@ export default function Page() {
       <header className="header">
         <div className="header-content">
           <div>
-            <h1 className="title">💪 Fitness Tracker</h1>
+            <h1 className="title">Fitness Tracker</h1>
             <p className="subtitle">Welcome back, {user.first_name}!</p>
           </div>
 
@@ -150,7 +150,9 @@ export default function Page() {
 
                 {/* Navigation Links */}
                 <Link href="/profile" className="menu-item-large">
-                  <span className="menu-icon-large">👤</span>
+                  <span className="profile-link-icon">
+                    <i className="fa-solid fa-user"></i>
+                  </span>
                   <div className="menu-item-content">
                     <span className="menu-item-title">Profile</span>
                     <span className="menu-item-desc">View and edit your profile</span>
@@ -158,7 +160,9 @@ export default function Page() {
                 </Link>
 
                 <Link href="/history" className="menu-item-large">
-                  <span className="menu-icon-large">📊</span>
+                  <span className="profile-link-icon">
+                    <i className="fa-solid fa-clock-rotate-left"></i>
+                  </span>
                   <div className="menu-item-content">
                     <span className="menu-item-title">History</span>
                     <span className="menu-item-desc">View all your workouts</span>
@@ -169,7 +173,9 @@ export default function Page() {
 
                 {/* Logout */}
                 <button className="menu-item-large logout" onClick={handleLogout}>
-                  <span className="menu-icon-large">🚪</span>
+                  <span className="profile-link-icon">
+                    <i className="fa-solid fa-arrow-right-from-bracket"></i>
+                  </span>
                   <div className="menu-item-content">
                     <span className="menu-item-title">Logout</span>
                     <span className="menu-item-desc">Sign out of your account</span>
@@ -222,7 +228,9 @@ export default function Page() {
 
         {!workouts || workouts.length === 0 ? (
           <div className="empty-home">
-            <div className="empty-home-icon">🏋️</div>
+            <div className="empty-home-icon">
+              <i className="fa-solid fa-dumbbell"></i>
+            </div>
             <h3>No workouts yet</h3>
             <p>Start your fitness journey by recording your first workout!</p>
           </div>
@@ -255,8 +263,10 @@ export default function Page() {
 
       {/* Floating Add Workout Button */}
       <Link href="/workouts/new" className="fab">
-        <span className="fab-icon">+</span>
-        <span className="fab-text">Add Workout</span>
+        <span className="profile-link-icon">
+          <i className="fa-solid fa-plus"></i>
+        </span>
+        <span className="fab-text">&nbsp;Add Workout</span>
       </Link>
     </main>
   );

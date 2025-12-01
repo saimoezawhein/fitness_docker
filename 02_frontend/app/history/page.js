@@ -110,15 +110,17 @@ export default function HistoryPage() {
 
   const filteredWorkouts = getFilteredWorkouts();
 
+  // Fixed calculations - parse values properly
   const totalWorkouts = filteredWorkouts.length;
   const totalCalories = filteredWorkouts.reduce(
-    (sum, w) => sum + (w.total_calories || 0),
+    (sum, w) => sum + (parseFloat(w.total_calories) || 0),
     0
   );
   const totalDuration = filteredWorkouts.reduce(
-    (sum, w) => sum + (w.duration_minutes || 0),
+    (sum, w) => sum + (parseInt(w.duration_minutes) || 0),
     0
   );
+  const avgCalories = totalWorkouts > 0 ? Math.round(totalCalories / totalWorkouts) : 0;
 
   const groupWorkoutsByMonth = (workouts) => {
     const groups = {};
@@ -166,7 +168,7 @@ export default function HistoryPage() {
 
       <div className="history-header">
         <div>
-          <h1 className="title">📊 Workout History</h1>
+          <h1 className="title">Workout History</h1>
           <p className="subtitle">Track your fitness journey over time</p>
         </div>
       </div>
@@ -196,25 +198,31 @@ export default function HistoryPage() {
       {/* Summary Stats */}
       <div className="history-stats">
         <div className="history-stat">
-          <span className="history-stat-icon">🏋️</span>
+          <span className="profile-link-icon">
+            <i className="fa-solid fa-dumbbell"></i>
+          </span>
           <span className="history-stat-value">{totalWorkouts}</span>
           <span className="history-stat-label">Workouts</span>
         </div>
         <div className="history-stat">
-          <span className="history-stat-icon">🔥</span>
+          <span className="profile-link-icon">
+            <i className="fa-solid fa-fire"></i>
+          </span>
           <span className="history-stat-value">{Math.round(totalCalories)}</span>
           <span className="history-stat-label">Calories Burned</span>
         </div>
         <div className="history-stat">
-          <span className="history-stat-icon">⏱️</span>
+          <span className="profile-link-icon">
+            <i className="fa-solid fa-clock"></i>
+          </span>
           <span className="history-stat-value">{totalDuration}</span>
           <span className="history-stat-label">Minutes Active</span>
         </div>
         <div className="history-stat">
-          <span className="history-stat-icon">📈</span>
-          <span className="history-stat-value">
-            {totalWorkouts > 0 ? Math.round(totalCalories / totalWorkouts) : 0}
+          <span className="profile-link-icon">
+            <i className="fa-solid fa-chart-line"></i>
           </span>
+          <span className="history-stat-value">{avgCalories}</span>
           <span className="history-stat-label">Avg Cal/Workout</span>
         </div>
       </div>
@@ -222,7 +230,9 @@ export default function HistoryPage() {
       {/* Workout List */}
       {filteredWorkouts.length === 0 ? (
         <div className="empty-state">
-          <div className="empty-icon">📊</div>
+          <div className="empty-icon">
+            <i className="fa-solid fa-dumbbell"></i>
+          </div>
           <h3>No workouts found</h3>
           <p>Your workout history will appear here</p>
           <Link href="/" className="btn btn-primary">
@@ -272,11 +282,15 @@ export default function HistoryPage() {
                         </h4>
                         <div className="history-card-stats">
                           <span className="history-card-stat">
-                            <span className="stat-icon">⏱️</span>
+                            <span className="profile-link-icon">
+                                <i className="fa-solid fa-clock fa-xs"></i>
+                            </span>
                             {workout.duration_minutes} min
                           </span>
                           <span className="history-card-stat">
-                            <span className="stat-icon">🔥</span>
+                            <span className="profile-link-icon">
+                                <i className="fa-solid fa-fire fa-xs"></i>
+                            </span>
                             {workout.total_calories || 0} cal
                           </span>
                         </div>
@@ -339,8 +353,11 @@ export default function HistoryPage() {
                               handleDelete(workout.id);
                             }}
                           >
-                            🗑️ Delete
-                          </button>
+                            <span className="profile-link-icon">
+                                <i className="fa-solid fa-trash fa-xs">  </i>
+                            </span>
+                             &nbsp;Delete
+                         </button>
                         </div>
                       </div>
                     )}
