@@ -20,7 +20,7 @@ pipeline {
         )
         string(
             name: 'API_HOST',
-            defaultValue: 'http://127.0.0.1:3001',
+            defaultValue: 'http://72.62.66.165:3001',
             description: 'API host URL for frontend to connect to.'
         )
     }
